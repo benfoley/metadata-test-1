@@ -74,7 +74,9 @@ def add_notebook(crate: ROCrate, notebook: Path, metadata: Path) -> None:
 
 
 def extract_properties(notebook: Path, metadata: Path) -> Dict[str, str]:
-    return {"name": notebook.name, "encodingFormat": "application/x-ipynb+json"}
+    # TODO parse the notebook metadata for other metadata items (not kernelspec, language_info, rocrate)?
+    # TODO if someone has manually changed the rocrate info in the notebook, can we keep that?
+    return {"name": notebook.name, "encodingFormat": "application/x-ipynb+json", "test-metadata": "mememe"}
 
 
 def extract_authors(crate: ROCrate, notebook: Path, metadata: Path) -> List[Person]:
