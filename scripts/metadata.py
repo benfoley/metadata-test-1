@@ -9,7 +9,7 @@ DEFAULT_AUTHOR = {
     "orcid": "https://orcid.org/0000-0000-0000-0000",
 }
 CREATORS_KEY = "creators"
-
+TITLE_KEY = "title"
 
 def extract_default_authors(metadata: Path) -> List[AuthorInfo]:
     """Attempts to extract author information from the metadata.json file within
@@ -41,3 +41,19 @@ def extract_notebook_authors(notebook: Path) -> Optional[List[AuthorInfo]]:
         return None
 
     return notebook_metadata[CREATORS_KEY]
+
+
+def extract_notebook_title(notebook: Path) -> str:
+    """Attempts to extract title information from within a jupyter notebook.
+
+    Parameters:
+        notebook: The path to the jupyter notebook
+    """
+    with open(notebook) as file:
+        data = json.load(file)
+
+    notebook_metadata = data["metadata"]
+    if TITLE_KEY not in notebook_metadata:
+        return None
+
+    return notebook_metadata[TITLE_KEY]

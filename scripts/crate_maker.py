@@ -5,7 +5,7 @@ import argparse
 from rocrate.rocrate import ROCrate
 from rocrate.model.person import Person
 from notebook_embedder import embed_notebook_metadata
-from metadata import extract_default_authors, extract_notebook_authors
+from metadata import extract_default_authors, extract_notebook_authors, extract_notebook_title
 import shutil
 
 
@@ -76,7 +76,8 @@ def add_notebook(crate: ROCrate, notebook: Path, metadata: Path) -> None:
 def extract_properties(notebook: Path, metadata: Path) -> Dict[str, str]:
     # TODO parse the notebook metadata for other metadata items (not kernelspec, language_info, rocrate)?
     # TODO if someone has manually changed the rocrate info in the notebook, can we keep that?
-    return {"name": notebook.name, "encodingFormat": "application/x-ipynb+json", "test-metadata": "mememe"}
+    title = extract_notebook_title(notebook)
+    return {"name": notebook.name, "encodingFormat": "application/x-ipynb+json", "title": title}
 
 
 def extract_authors(crate: ROCrate, notebook: Path, metadata: Path) -> List[Person]:
