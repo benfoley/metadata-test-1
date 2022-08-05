@@ -54,6 +54,6 @@ def extract_notebook_title(notebook: Path) -> str:
 
     notebook_metadata = data["metadata"]
     if TITLE_KEY not in notebook_metadata:
-        return None
+        return ""
 
     return notebook_metadata[TITLE_KEY]
