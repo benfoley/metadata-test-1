@@ -4,7 +4,7 @@
         {
             "@id": "./",
             "@type": "Dataset",
-            "datePublished": "2022-08-05T01:15:10+00:00",
+            "datePublished": "2022-08-05T02:01:44+00:00",
             "hasPart": [
                 {
                     "@id": "index.ipynb"
@@ -46,12 +46,17 @@
             "@type": "File",
             "author": [
                 {
-                    "@id": "#0000-0003-0879-9251"
+                    "@id": "#232"
                 }
             ],
             "encodingFormat": "application/x-ipynb+json",
             "name": "sample_notebook.ipynb",
-            "title": "my juicy notebook"
+            "title": "my super notebook"
+        },
+        {
+            "@id": "#232",
+            "@type": "Person",
+            "name": "ben"
         }
     ]
 }
